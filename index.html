@@ -1,27 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Cotações em tempo real</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Tracker - Página Principal</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<header>
-    <h1>Cotações Financeiras</h1>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="favoritos.html">Favoritos</a>
-        <a href="racas.html">Mercados</a>
-    </nav>
-</header>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>📈 Stock Tracker</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="favoritos.html">Favoritos</a></li>
+                <li><a href="racas.html">Análises</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container">
-    <input type="text" id="ticker" placeholder="Ex: AAPL">
-    <button onclick="subscribeTicker()">Assinar</button>
-    <button onclick="addFavorite(document.getElementById('ticker').value)">Favoritar</button>
-    <div id="quotes"></div>
-</div>
+    <main class="main-container">
+        <section class="hero">
+            <h2>Acompanhe as Cotações em Tempo Real</h2>
+            <p>Monitore suas ações favoritas e tome decisões inteligentes no mercado financeiro</p>
+        </section>
 
-<script src="js/main.js"></script>
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="stockSymbol" placeholder="Digite o símbolo da ação (ex: AAPL, MSFT, GOOGL)" maxlength="10">
+                <button id="searchBtn" class="btn-primary">Buscar Cotação</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div id="loadingSpinner" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Buscando dados...</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            
+            <div id="stockData" class="stock-card hidden">
+                <div class="stock-header">
+                    <img id="stockLogo" src="" alt="Logo da empresa" class="stock-logo">
+                    <div class="stock-info">
+                        <h3 id="companyName"></h3>
+                        <span id="stockSymbolDisplay" class="symbol"></span>
+                    </div>
+                    <button id="addToFavorites" class="btn-favorite">⭐ Adicionar aos Favoritos</button>
+                </div>
+                
+                <div class="stock-metrics">
+                    <div class="metric">
+                        <span class="metric-label">Preço Atual</span>
+                        <span id="currentPrice" class="metric-value price"></span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Variação</span>
+                        <span id="priceChange" class="metric-value"></span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Variação (%)</span>
+                        <span id="percentChange" class="metric-value"></span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Volume</span>
+                        <span id="volume" class="metric-value"></span>
+                    </div>
+                </div>
+                
+                <div class="stock-details">
+                    <div class="detail-row">
+                        <span>Abertura:</span>
+                        <span id="openPrice"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Máxima:</span>
+                        <span id="highPrice" class="high"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Mínima:</span>
+                        <span id="lowPrice" class="low"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Fechamento Anterior:</span>
+                        <span id="previousClose"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="popular-stocks">
+            <h3>Ações Populares</h3>
+            <div class="stocks-grid" id="popularStocks">
+                <!-- Será preenchido dinamicamente -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Stock Market Tracker. Dados fornecidos pela API Alpha Vantage.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,27 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Favoritos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Tracker - Favoritos</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<header>
-    <h1>Favoritos</h1>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="favoritos.html">Favoritos</a>
-        <a href="racas.html">Mercados</a>
-    </nav>
-</header>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>📈 Stock Tracker</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favoritos.html" class="active">Favoritos</a></li>
+                <li><a href="racas.html">Análises</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container">
-    <div id="favorites-container"></div>
-</div>
+    <main class="main-container">
+        <section class="page-header">
+            <h2>Minhas Ações Favoritas</h2>
+            <p>Acompanhe de perto as ações que você mais observa</p>
+        </section>
 
-<script src="js/main.js"></script>
-<script>
-renderFavorites();
-</script>
+        <section class="favorites-controls">
+            <div class="controls-container">
+                <button id="refreshAll" class="btn-secondary">🔄 Atualizar Todas</button>
+                <button id="clearAll" class="btn-danger">🗑️ Limpar Favoritos</button>
+            </div>
+        </section>
+
+        <section class="favorites-section">
+            <div id="favoritesLoading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Atualizando favoritos...</p>
+            </div>
+
+            <div id="noFavorites" class="empty-state">
+                <div class="empty-icon">⭐</div>
+                <h3>Nenhuma ação favorita ainda</h3>
+                <p>Adicione ações aos seus favoritos na <a href="index.html">página principal</a></p>
+            </div>
+
+            <div id="favoritesList" class="favorites-grid">
+                <!-- Será preenchido dinamicamente -->
+            </div>
+        </section>
+
+        <section class="add-favorite-section">
+            <div class="add-favorite-card">
+                <h3>Adicionar Nova Ação Favorita</h3>
+                <div class="add-favorite-form">
+                    <input type="text" id="newFavoriteSymbol" placeholder="Símbolo da ação (ex: AAPL)" maxlength="10">
+                    <button id="addFavoriteBtn" class="btn-primary">Adicionar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="favorites-summary">
+            <div class="summary-cards">
+                <div class="summary-card positive">
+                    <h4>Em Alta</h4>
+                    <span id="positiveCount">0</span>
+                </div>
+                <div class="summary-card negative">
+                    <h4>Em Baixa</h4>
+                    <span id="negativeCount">0</span>
+                </div>
+                <div class="summary-card neutral">
+                    <h4>Total</h4>
+                    <span id="totalCount">0</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Stock Market Tracker. Dados fornecidos pela API Alpha Vantage.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,31 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Mercados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Tracker - Análises</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-<header>
-    <h1>Mercados e Tickers</h1>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="favoritos.html">Favoritos</a>
-        <a href="racas.html">Mercados</a>
-    </nav>
-</header>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>📈 Stock Tracker</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="favoritos.html">Favoritos</a></li>
+                <li><a href="racas.html" class="active">Análises</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container">
-    <select id="market-select">
-        <option value="NASDAQ">NASDAQ</option>
-        <option value="NYSE">NYSE</option>
-        <option value="FOREX">FOREX</option>
-    </select>
-    <input type="text" id="ticker" placeholder="Ex: AAPL">
-    <button onclick="subscribeTicker()">Assinar</button>
-    <div id="quotes"></div>
-</div>
+    <main class="main-container">
+        <section class="page-header">
+            <h2>Análises e Comparações</h2>
+            <p>Compare diferentes ações e visualize análises detalhadas do mercado</p>
+        </section>
 
-<script src="js/main.js"></script>
+        <section class="analysis-tools">
+            <div class="tool-card">
+                <h3>Comparar Ações</h3>
+                <div class="compare-form">
+                    <input type="text" id="stock1" placeholder="Primeira ação (ex: AAPL)" maxlength="10">
+                    <input type="text" id="stock2" placeholder="Segunda ação (ex: MSFT)" maxlength="10">
+                    <button id="compareBtn" class="btn-primary">Comparar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="comparison-results">
+            <div id="comparisonLoading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Carregando comparação...</p>
+            </div>
+
+            <div id="comparisonResults" class="comparison-grid hidden">
+                <div class="comparison-card" id="stock1Card">
+                    <div class="comparison-header">
+                        <img id="logo1" src="" alt="Logo" class="comparison-logo">
+                        <h4 id="name1"></h4>
+                        <span id="symbol1" class="symbol"></span>
+                    </div>
+                    <div class="comparison-metrics">
+                        <div class="metric">
+                            <span>Preço</span>
+                            <span id="price1" class="price"></span>
+                        </div>
+                        <div class="metric">
+                            <span>Variação</span>
+                            <span id="change1"></span>
+                        </div>
+                        <div class="metric">
+                            <span>Volume</span>
+                            <span id="volume1"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-vs">
+                    <span>VS</span>
+                </div>
+
+                <div class="comparison-card" id="stock2Card">
+                    <div class="comparison-header">
+                        <img id="logo2" src="" alt="Logo" class="comparison-logo">
+                        <h4 id="name2"></h4>
+                        <span id="symbol2" class="symbol"></span>
+                    </div>
+                    <div class="comparison-metrics">
+                        <div class="metric">
+                            <span>Preço</span>
+                            <span id="price2" class="price"></span>
+                        </div>
+                        <div class="metric">
+                            <span>Variação</span>
+                            <span id="change2"></span>
+                        </div>
+                        <div class="metric">
+                            <span>Volume</span>
+                            <span id="volume2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="comparisonAnalysis" class="analysis-summary hidden">
+                <h3>Resumo da Análise</h3>
+                <div class="analysis-content">
+                    <div id="winner" class="winner-card"></div>
+                    <div id="analysisText" class="analysis-text"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="market-overview">
+            <h3>Visão Geral do Mercado</h3>
+            <div class="market-indicators">
+                <div id="marketData" class="indicators-grid">
+                    <!-- Será preenchido dinamicamente -->
+                </div>
+            </div>
+        </section>
+
+        <section class="analysis-history">
+            <h3>Histórico de Comparações</h3>
+            <div id="analysisHistory" class="history-list">
+                <div class="empty-state">
+                    <div class="empty-icon">📊</div>
+                    <p>Nenhuma comparação realizada ainda</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Stock Market Tracker. Dados fornecidos pela API Alpha Vantage.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -16,11 +16,11 @@ Este projeto consome a **finance-websocket-API** para exibir cotações em tempo
 
 ## Estrutura de requisições
 
-| Página           | Tipo requisição | Endpoint                                    |
-|-----------------|----------------|--------------------------------------------   |
-| index.html      | WS/GET         | ws://localhost:3000                           |
-| favoritos.html  | LocalStorage   | -                                             |
-| racas.html      | WS/GET         | ws://localhost:3000                           |
+| Página           | Tipo requisição | Endpoint                                      |
+|----------------- |---------------- |--------------------------------------------   |
+| index.html       | WS/GET          | ws://localhost:3000                           |
+| favoritos.html   | LocalStorage    | -                                             |
+| racas.html       | WS/GET          | ws://localhost:3000                           |
 
 ## Créditos
 - [finance-websocket-API](https://github.com/Real-time-finance/finance-websocket-API)

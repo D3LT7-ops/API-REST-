@@ -1,0 +1,33 @@
+{
+  "name": "stock-market-tracker",
+  "version": "1.0.0",
+  "description": "Aplicação web para acompanhamento de cotações de ações em tempo real",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "live-server .",
+    "build": "echo 'Projeto não necessita build - HTML/CSS/JS puro'",
+    "deploy": "gh-pages -d ."
+  },
+  "keywords": [
+    "stock",
+    "market",
+    "finance",
+    "api",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Helberth Renan Gomes De Sousa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://D3LT7-ops.github.io/stock-market-tracker"
+  },
+  "homepage": "https://D3LT7-ops.github.io/stock-market-tracker",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "gh-pages": "^4.0.0"
+  }
+}
