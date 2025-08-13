@@ -1,4 +1,50 @@
-/* Reset e configurações básicas */
+/* Real-time indicator styles */
+.real-time-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: rgba(40, 167, 69, 0.1);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #28a745;
+    font-weight: 500;
+}
+
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: #28a745;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+/* Price update animation */
+.price-update {
+    animation: priceFlash 1s ease;
+}
+
+@keyframes priceFlash {
+    0% {
+        background-color: #ffc107;
+        transform: scale(1);
+    }
+    50% {
+        background-color: rgba(255, 193, 7, 0.3);
+        transform: scale(1/* Reset e configurações básicas */
 * {
     margin: 0;
     padding: 0;
