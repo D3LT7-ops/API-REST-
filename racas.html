@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Mercados</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header>
+    <h1>Mercados e Tickers</h1>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="favoritos.html">Favoritos</a>
+        <a href="racas.html">Mercados</a>
+    </nav>
+</header>
+
+<div class="container">
+    <select id="market-select">
+        <option value="NASDAQ">NASDAQ</option>
+        <option value="NYSE">NYSE</option>
+        <option value="FOREX">FOREX</option>
+    </select>
+    <input type="text" id="ticker" placeholder="Ex: AAPL">
+    <button onclick="subscribeTicker()">Assinar</button>
+    <div id="quotes"></div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
